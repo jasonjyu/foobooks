@@ -145,6 +145,15 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Debug Bar package...
+         */
+        Barryvdh\Debugbar\ServiceProvider::class,
+
+        /*
+         * Log Viewer package...
+         */
+        Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
     ],
 
     /*
@@ -194,6 +203,15 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
 
+        /*
+         * Debug Bar package...
+         */
+        'Debugbar'  => Barryvdh\Debugbar\Facade::class,
+
+         /*
+          * Rych Random Data package...
+          */
+        'Random'    => 'Rych\Random\Random',
     ],
 
 ];
