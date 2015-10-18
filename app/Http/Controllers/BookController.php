@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
@@ -16,7 +17,7 @@ class BookController extends Controller
     */
     public function getIndex()
     {
-        // return 'List all the books';
+        //return 'List all the books';
         return view('books.index');
     }
 
@@ -25,7 +26,7 @@ class BookController extends Controller
      */
     public function getShow($title = null)
     {
-        // return 'Show book: '.$id;
+        //return 'Show book: '.$title;
         return view('books.show')->with('title', $title);
     }
 
@@ -34,14 +35,21 @@ class BookController extends Controller
      */
     public function getCreate()
     {
-        return 'Form to create a new book';
+        return view('books.create');
     }
 
     /**
      * Responds to requests to POST /books/create
      */
-    public function postCreate()
+    public function postCreate(Request $request)
     {
-        return 'Process adding new book';
+        $this->validate(
+            $request,
+            ['title' => 'required|min:5',
+            ]
+        );
+        // Code here to enter book into the database
+        // Confirm book was entered:
+        return 'Process adding new book: '.$request->input('title');
     }
 }
