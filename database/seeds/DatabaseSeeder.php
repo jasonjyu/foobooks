@@ -15,6 +15,12 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
         // $this->call(UserTableSeeder::class);
+
+        /*
+        Because Books will be associated with Authors,
+        we need to seed Authors first
+        */
+        $this->call(AuthorsTableSeeder::class);
         $this->call(BooksTableSeeder::class);
 
         Model::reguard();
